@@ -1,12 +1,13 @@
 import React from "react";
+import Link from "next/link";
 
-import { MdOutlineAddHomeWork } from "react-icons/md";
 
 const HomePage = () => {
   return (
     <div className="text-2xl flex justify-center gap-3 pt-7">
       <div>
-        <MdOutlineAddHomeWork size={100} className="text-indigo-600" />
+        <h1 className="text-3xl">Welcome</h1>
+        <Link href="/properties">Go to properties</Link>
       </div>
       HomePage
     </div>
