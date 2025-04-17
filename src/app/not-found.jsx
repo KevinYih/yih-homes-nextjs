@@ -13,8 +13,8 @@ const NotFoundPage = () => {
           <div className="text-center">
             <h1 className="text-3xl font-bold mt-4 mb-2">Page Not Found</h1>
             <p className="text-gray-500 text-xl mb-10">The page you are looking for does not exist.</p>
-            <Link href="/" className="bg-green-700 hover:bg-green-800 text-white font-bold py-4 px-3 rounded-xl ">
-              <Image className="h-10 w-auto inline mr-5" src={logo} alt="PropertyPulse" /> Go Home
+            <Link href="/" className="bg-green-700 hover:bg-green-800 text-white font-bold py-4 px-3 rounded-md ">
+              <Image className="h-8 w-auto inline mr-3" src={logo} alt="PropertyPulse" /> Go Home
             </Link>
           </div>
         </div>
