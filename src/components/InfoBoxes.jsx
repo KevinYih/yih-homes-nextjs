@@ -9,7 +9,7 @@ const InfoBoxes = () => {
           <InfoBox heading="For Renters" bgColor="bg-gray-100" btnColor="bg-black" btnText="Browse Properties" btnHoverColor="bg-gray-700" link="/properties">
             Find your dream rental property. Bookmark properties and contact owners.
           </InfoBox>
-          <InfoBox heading="For Property Owners" bgColor="bg-blue-100" btnColor="bg-blue-500" btnText="Add Property" btnHoverColor="bg-blue-600" link="/properties/add">
+          <InfoBox heading="For Property Owners" bgColor="bg-green-100" btnColor="bg-green-500" btnText="Add Property" btnHoverColor="bg-green-600" link="/properties/add">
             List your properties and reach potential tenants. Rent as an airbnb or long term.
           </InfoBox>
         </div>
