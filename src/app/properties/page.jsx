@@ -1,8 +1,14 @@
-import properties from "@/assests/dataDemo/properties.json";
 import PropertyCard from "@/components/PropertyCard";
 
-const PropertiesPage = () => {
-  console.log("properties:", properties[0].description);
+// import properties from "@/assests/dataDemo/properties.json";
+import connectDB from "../../../config/database";
+import Property from "../../../models/Property";
+
+const PropertiesPage = async () => {
+  await connectDB();
+  const properties = await Property.find({}).lean();
+
+  // console.log("properties1:", properties[0].description);
 
   return (
     <section className="px-4 py-6">
