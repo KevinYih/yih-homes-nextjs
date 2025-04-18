@@ -7,8 +7,12 @@ import logo from "@/assests/images/logo-white.png";
 import profileDefault from "@/assests/images/profile.png";
 import { FaGoogle } from "react-icons/fa";
 import { useState } from "react";
+import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 
 const Navbar = () => {
+  // const { data: session } = useSession();
+  // console.log("session:", session);
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
