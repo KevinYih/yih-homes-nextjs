@@ -8,11 +8,14 @@ import profileDefault from "@/assests/images/profile.png";
 import { FaGoogle } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
+import { sendError } from "next/dist/server/api-utils";
 
 const Navbar = () => {
   const { data: session } = useSession();
-  console.log("session:", session);
+  // console.log("session:", session);
   //const session = true;  //test
+  const profileImage = session?.user?.image;
+  console.log("profileImage:", profileImage);
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
@@ -101,10 +104,10 @@ const Navbar = () => {
               {/* <!-- Profile dropdown button --> */}
               <div className="relative ml-3">
                 <div>
-                  <button onClick={() => setIsProfileMenuOpen((prev) => !prev)} type="button" className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                  <button onClick={() => setIsProfileMenuOpen((prev) => !prev)} type="button" className="relative flex rounded-full cursor-pointer bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                     <span className="absolute -inset-1.5"></span>
                     <span className="sr-only">Open user menu</span>
-                    <Image className="h-8 w-8 rounded-full" src={profileDefault} alt="" />
+                    <Image className="h-8 w-8 rounded-full" src={profileImage || profileDefault} width={40} height={40} alt="" />
                   </button>
                 </div>
 
@@ -117,7 +120,15 @@ const Navbar = () => {
                     <Link href="/properties/saved" className="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabIndex="-1" id="user-menu-item-2">
                       Saved Properties
                     </Link>
-                    <button className="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabIndex="-1" id="user-menu-item-2">
+                    <button
+                      onClick={() => {
+                        setIsProfileMenuOpen(false);
+                        signOut();
+                      }}
+                      className="block px-4 py-2 text-sm text-gray-700"
+                      role="menuitem"
+                      tabIndex="-1"
+                      id="user-menu-item-2">
                       Sign Out
                     </button>
                   </div>
