@@ -1,9 +1,10 @@
 import GoogleProvider from "next-auth/providers/google";
+import connectDB from "../../../../../config/database";
+import User from '../../../../../models/User'
 
-export default authOptions = {
+export const authOptions = {
   providers: [
     // OAuth authentication providers...
-
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
@@ -15,7 +16,7 @@ export default authOptions = {
         },
       },
     }),
-  ],
+  ],  
   callbacks: {
     //Invoked on successful sign in
     async signIn({ profile }) {
@@ -23,12 +24,14 @@ export default authOptions = {
       //2.Check if user exists
       //3.if not, create user
       //4. return true to allow sign in
+      return true;
     },
     // Session callback function that modifies the session object
     async session({ session }) {
       //1. get user from database
       //2. assign user id from the session
       //3. return session
+      return session;
     },
-  },
+  },  
 };
