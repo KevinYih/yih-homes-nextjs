@@ -9,6 +9,7 @@ import { FaGoogle } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 import { sendError } from "next/dist/server/api-utils";
+import { MdHomeWork } from "react-icons/md";
 
 const Navbar = () => {
   const { data: session } = useSession();
@@ -51,9 +52,8 @@ const Navbar = () => {
           <div className="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
             {/* <!-- Logo --> */}
             <Link className="flex flex-shrink-0 items-center" href="/">
-              <Image className="h-10 w-auto" src={logo} alt="PropertyPulse" />
-
-              <span className="hidden md:block text-white text-2xl font-bold ml-2">PropertyPulse</span>
+              <MdHomeWork className="text-4xl text-white mr-1" />
+              <span className="hidden md:block text-white text-2xl font-bold ml-2">YihHomes</span>
             </Link>
             {/* <!-- Desktop Menu Hidden below md screens --> */}
             <div className="hidden md:ml-6 md:block">
