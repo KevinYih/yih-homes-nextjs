@@ -13,7 +13,6 @@ const PropertyPage = async ({ params }) => {
   const { id } = await params;
   await connectDB();
   const property = await Property.findById(id).lean();
-  console.log("property:", property);
 
   return (
     <>
@@ -29,7 +28,7 @@ const PropertyPage = async ({ params }) => {
       <section className="bg-green-50">
         <div className="container m-auto py-10 px-6">
           <div className="grid grid-cols-1 md:grid-cols-[70%_28%] w-full gap-6">
-            <PropertyDetails property={property}/>
+            <PropertyDetails property={property} />
           </div>
         </div>
       </section>
