@@ -1,7 +1,8 @@
+"use client";
 import Link from "next/link";
 import { MdHomeWork } from "react-icons/md";
 
-const NotFoundPage = () => {
+const ErrorPage = ({ error }) => {
   return (
     <section className="bg-green-50 min-h-screen flex-grow">
       <div className="container m-auto max-w-2xl py-24">
@@ -10,8 +11,11 @@ const NotFoundPage = () => {
             <i className="fas fa-exclamation-triangle fa-5x text-8xl text-yellow-400"></i>
           </div>
           <div className="text-center">
-            <h1 className="text-3xl font-bold mt-4 mb-5">404, Page Not Found</h1>
-            <p className="text-gray-500 text-xl mb-10">The page you are looking for does not exist.</p>
+            <h1 className="text-3xl font-bold mt-4 mb-5">Error Page</h1>
+
+            <p className="text-left text-gray-500 text-xl mb-2">Something went wrong:</p>
+            <p className="text-left text-gray-500 text-xl mb-10">{error.toString()}</p>
+
             <Link href="/" className="bg-green-700 hover:bg-green-800 text-white font-bold py-4 px-3 rounded-md ">
               <MdHomeWork className="text-3xl inline mr-2" /> Go Home
             </Link>
@@ -23,4 +27,4 @@ const NotFoundPage = () => {
   );
 };
 
-export default NotFoundPage;
+export default ErrorPage;
