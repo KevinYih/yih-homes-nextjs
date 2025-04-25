@@ -16,14 +16,14 @@ const Navbar = () => {
   // console.log("session:", session);
   //const session = true;  //test
   const profileImage = session?.user?.image;
-  console.log("profileImage:", profileImage);
+  // console.log("profileImage:", profileImage);
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
   const [providers, setProviders] = useState(null);
 
   const pathname = usePathname();
-  console.log("pathname:", pathname);
+  // console.log("pathname:", pathname);
 
   useEffect(() => {
     const setAuthProviders = async () => {
